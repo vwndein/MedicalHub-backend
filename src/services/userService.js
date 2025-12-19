@@ -1,4 +1,4 @@
-import { deleteUser as amplifyDeleteUser } from "aws-amplify/auth";
+import { Auth } from "aws-amplify";
 import db from "../models/index";
 import bcrypt from "bcryptjs";
 import { where } from "sequelize";
