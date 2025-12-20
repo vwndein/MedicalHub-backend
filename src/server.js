@@ -8,15 +8,20 @@ require("dotenv").config();
 
 let app = express();
 
+// Cấu hình CORS cho cả local và production
 app.use(
   cors({
-    origin: "http://localhost:3000", // hoặc domain frontend của bạn
+    origin: [
+      "http://localhost:3000", // Local development
+      "https://medical-hub-frontend-sigma.vercel.app", // Your Vercel frontend
+    ],
     credentials: true,
   })
 );
 
-// app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({ extended: true }));
+// Hoặc cho phép tất cả domain (tạm thời để test)
+// app.use(cors());
+
 app.use(bodyParser.json({ limit: "50mb" }));
 app.use(bodyParser.urlencoded({ limit: "50mb", extended: true }));
 
